@@ -1,8 +1,13 @@
-const map = L.map('map').setView([20, 0], 2);
+const map = L.map('map', {
+  worldCopyJump: false,
+  maxBounds: [[-90, -180], [90, 180]],
+  maxBoundsViscosity: 1.0
+}).setView([20, 0], 2);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   maxZoom: 19,
   subdomains: 'abcd',
+  noWrap: true,
   attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
 }).addTo(map);
 
